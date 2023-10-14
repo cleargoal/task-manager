@@ -3,7 +3,6 @@ version: "3"
 services:
     db:
         image: mysql:8.0.33
-        platform: linux/x86_64
         command: --default-authentication-plugin=mysql_native_password
         volumes:
             - "db_app:/var/lib/mysql"
@@ -13,7 +12,7 @@ services:
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
         ports:
-            - 3306:3306
+            - "3306:3306"
         networks:
             - symfony_app
     php:
@@ -35,7 +34,7 @@ services:
             - symfony_app_var:/var/www/symfony/var
             - symfony_app_vendor:/var/www/symfony/vendor
         ports:
-            - 80:80
+            - "8001:80"
         networks:
             - symfony_app
         env_file:
