@@ -24,12 +24,12 @@ class ShortenController extends AbstractController
         return new JsonResponse($response);
     }
 
-    #[Route(path: '/revert/{hash}', name: 'revert_url', methods: ['GET'])]
+    #[Route(path: '/revert', name: 'revert_url', methods: ['POST'])]
     public function revert(Request $request, ShortenRepository $repository): JsonResponse
     {
         $host = $request->getHttpHost();
-        $sourceUrl = $request->request->get('hashed_url');
-        $response = $repository->revert($sourceUrl, $host);
+        $hashedUrl = $request->request->get('hashed_url');
+        $response = $repository->revert($hashedUrl, $host);
         return new JsonResponse($response);
     }
 
