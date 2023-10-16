@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ShortenRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ShortenRepository::class)]
 class Shorten
@@ -13,9 +14,11 @@ class Shorten
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255, unique: true)]
     private ?string $source_url = null;
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255, unique: true)]
     private ?string $hashed_url = null;
 
