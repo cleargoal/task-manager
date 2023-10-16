@@ -33,10 +33,4 @@ class ShortenController extends AbstractController
         return new JsonResponse($response);
     }
 
-    #[Route(path: '/list', name: 'list_urls', methods: ['GET'])]
-    public function listUrls(ManagerRegistry $doctrine, Request $request): JsonResponse
-    {
-        return new JsonResponse(['All URLs: ']);
-    }
-
 }
