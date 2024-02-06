@@ -22,6 +22,7 @@ services:
                 TIMEZONE: ${TIMEZONE}
         volumes:
              - ./../:/var/www/symfony
+             - ./../src/templates:/var/www/symfony/templates
         networks:
             - symfony_app
     nginx:
