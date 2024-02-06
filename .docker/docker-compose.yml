@@ -13,9 +13,9 @@ services:
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
         ports:
-            - 3306:3306
+            - "3305:3306"
         networks:
-            - symfony_app
+            - task_man
     php:
         build:
             context: ./php
@@ -26,7 +26,7 @@ services:
             - symfony_app_var:/var/www/symfony/var
             - symfony_app_vendor:/var/www/symfony/vendor
         networks:
-            - symfony_app
+            - task_man
     nginx:
         build:
             context: ./nginx
@@ -35,9 +35,9 @@ services:
             - symfony_app_var:/var/www/symfony/var
             - symfony_app_vendor:/var/www/symfony/vendor
         ports:
-            - 80:80
+            - "8002:80"
         networks:
-            - symfony_app
+            - task_man
         env_file:
             - .env.nginx.local
 
@@ -47,4 +47,4 @@ volumes:
     db_app:
 
 networks:
-    symfony_app:
+    task_man:
