@@ -1,0 +1,26 @@
+{# templates/base.html.twig #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Amazing Task Manager{% endblock %}</title>
+  <!-- Add your CSS styles or external stylesheets here -->
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <!-- Add navigation links or menus as needed -->
+  </ul>
+</nav>
+<div>{% block view %}Just to see anything{% endblock %}</div>
+
+<div class="content">
+  {% block body %}{% endblock %}
+</div>
+
+</body>
+</html>
